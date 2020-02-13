@@ -1,0 +1,53 @@
+
+<ion-header no-border>
+  <ion-toolbar translucent>
+    <ion-buttons slot="start">
+
+      <ion-button (click)="myBackButton()" class="bckBtn" fill="clear">
+        <ion-icon slot="icon-only" name="md-arrow-back"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content fullscreen>
+
+
+  <div *ngIf="post">
+    <div class="imgWrapper">
+      <ion-title class="dTitle" [innerHTML]="post?.title.rendered"></ion-title>
+      <img [src]="post.media_url" [style.width]="'100%'">
+    </div>
+    <div class="author">Author: {{ user?.name}}</div><br>
+    <div class="cath">Cath: {{ category?.name}}</div><br>
+    <div class="cath">Tag: {{ tagName?.name }}</div><br><br>
+    &nbsp;&nbsp;&nbsp;<ion-button class="favBtn" (click)="addToFavorites(post.id)" >
+      <ion-icon name="heart" end></ion-icon>
+    </ion-button>
+
+    <div [innerHTML]="post.content.rendered" class="ion-padding"></div>
+  </div>
+
+
+  <div class="cath" *ngIf="post">Related Articles:</div><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-slides #slideWithNav class="slide-padding sli3" pager="true" [options]="sliderConfig" >
+            <ion-slide *ngFor="let post of posts">
+              <ion-card [routerLink]="['/tabs/home/post/' + post.id]">
+                <img [src]="post.fimg_url" alt="{{post.title.rendered}}"/>
+
+                  <ion-card-subtitle [innerHTML]="post.title.rendered"></ion-card-subtitle>
+
+              </ion-card>
+            </ion-slide>
+        </ion-slides>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

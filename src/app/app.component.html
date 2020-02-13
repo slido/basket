@@ -1,0 +1,38 @@
+<ion-app>
+  <ion-menu contentId="content1" side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item >
+          <button ion-Item icon-left block routerLink="/settings">
+            <ion-icon name="settings"></ion-icon>
+            Settings
+          </button>
+        </ion-item>
+        <!--<ion-item *ngIf="!isAuthenticated">
+          <button ion-Item icon-left block (click)="onLoad(signinPage)">
+            <ion-icon name="log-in"></ion-icon>
+            Signin
+          </button>
+        </ion-item>
+        <ion-item *ngIf="!isAuthenticated">
+          <button ion-Item icon-left block (click)="onLoad(signupPage)">
+            <ion-icon name="person"></ion-icon>
+            Signup
+          </button>
+        </ion-item>
+        <ion-item *ngIf="isAuthenticated">
+          <button ion-Item icon-left (click)="onLogout()" *ngIf="isAuthenticated">
+            <ion-icon name="log-out"></ion-icon>Logout
+          </button>
+        </ion-item>
+        -->
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content1" main></ion-router-outlet>
+</ion-app>

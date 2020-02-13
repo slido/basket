@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Feed</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid fixed>
+    <ion-row>
+      <!-- [checked] postsavi aktivan tag -->
+      <ion-col size="12">
+        <ion-segment scrollable="true" [(ngModel)]="selectedIdx">
+          <ion-segment-button (ionSelect)="getPostByCategories(category.id)" [checked]="category?.name === 'Free Agency'" *ngFor="let category of categories; first as isFirst">
+            <ion-label>{{ category.name }}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-card *ngFor="let post of postsPerCat">
+    <ion-card-header>
+      <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
+      <ion-card-subtitle>{{ post.date_gmt | date }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="post.media_url">
+      <div [innerHTML]="post.excerpt.rendered"></div>
+      <ion-button expand="full" fill="solid" [routerLink]="['/tabs/home/post/' + post.id]" class="ion-text-right">Read More...</ion-button>
+    </ion-card-content>
+  </ion-card>
+<!--
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingText="Loading more posts...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+-->
+
+</ion-content>
