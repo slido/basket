@@ -787,6 +787,7 @@ let AppComponent = class AppComponent {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
+        this.splashScreen.show();
         this.initializeApp();
     }
     initializeApp() {

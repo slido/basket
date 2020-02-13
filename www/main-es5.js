@@ -872,6 +872,7 @@ var __values = (this && this.__values) || function (o) {
                     this.platform = platform;
                     this.splashScreen = splashScreen;
                     this.statusBar = statusBar;
+                    this.splashScreen.show();
                     this.initializeApp();
                 }
                 AppComponent.prototype.initializeApp = function () {
