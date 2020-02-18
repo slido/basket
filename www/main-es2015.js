@@ -792,8 +792,12 @@ let AppComponent = class AppComponent {
     }
     initializeApp() {
         this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
+            //alert("this fires");
+            //this.statusBar.styleDefault();
+            //this.splashScreen.hide();
+            setTimeout(() => {
+                this.splashScreen.hide();
+            }, 1000);
         });
     }
 };

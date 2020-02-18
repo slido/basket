@@ -878,8 +878,12 @@ var __values = (this && this.__values) || function (o) {
                 AppComponent.prototype.initializeApp = function () {
                     var _this = this;
                     this.platform.ready().then(function () {
-                        _this.statusBar.styleDefault();
-                        _this.splashScreen.hide();
+                        //alert("this fires");
+                        //this.statusBar.styleDefault();
+                        //this.splashScreen.hide();
+                        setTimeout(function () {
+                            _this.splashScreen.hide();
+                        }, 1000);
                     });
                 };
                 return AppComponent;
