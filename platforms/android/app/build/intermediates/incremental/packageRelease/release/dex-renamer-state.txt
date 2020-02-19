@@ -1,4 +1,0 @@
-#Wed Feb 12 13:53:24 CET 2020
-base.0=/Users/MacPro/Desktop/DECODER/Basket/platforms/android/app/build/intermediates/transforms/dex/release/0
-renamed.0=classes.dex
-file.0=/Users/MacPro/Desktop/DECODER/Basket/platforms/android/app/build/intermediates/transforms/dex/release/0/classes.dex
