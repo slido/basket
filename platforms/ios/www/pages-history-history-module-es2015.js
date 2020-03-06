@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>History</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" *ngIf=\"hystoryList\">\n<!--<ion-button (click)=\"delete()\">delete</ion-button>-->\n  <ion-card *ngFor=\"let post of hystoryList?.reverse()\">\n    <ion-card-header>\n      <ion-card-title [innerHTML]=\"post?.title.rendered\"></ion-card-title>\n      <ion-card-subtitle>{{ post?.date_gmt | date }}</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <img [src]=\"post?.media_url\">\n      <div [innerHTML]=\"post?.excerpt.rendered\"></div>\n      <ion-button expand=\"full\" fill=\"clear\" [routerLink]=\"['/tabs/home/post/' + post?.id]\" class=\"ion-text-right\">Read More...</ion-button>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>History</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" *ngIf=\"hystoryList\">\n<!--<ion-button (click)=\"delete()\">delete</ion-button>-->\n  <ion-card *ngFor=\"let post of hystoryList?.reverse()\">\n    <ion-card-header>\n      <ion-card-title [innerHTML]=\"post?.title.rendered\"></ion-card-title>\n      <ion-card-subtitle>{{ post?.date_gmt | date }}</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <img [src]=\"post?.media_url\">\n      <div [innerHTML]=\"post?.excerpt.rendered\"></div>\n      <ion-button expand=\"full\" fill=\"solid\" [routerLink]=\"['/tabs/home/post/' + post?.id]\" class=\"ion-text-right\">Read More...</ion-button>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -99,7 +99,6 @@ let HistoryPage = class HistoryPage {
     }
     delete() {
         this.hystoryList = [];
-        //localStorage.setItem('hystoryList', Object.values(this.hystoryList));
     }
 };
 HistoryPage.ctorParameters = () => [

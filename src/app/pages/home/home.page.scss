@@ -144,8 +144,8 @@ ion-col, ion-grid {
  }
 
   .sli2 .swiper-slide img {
-  max-height:101px;
-  height:101px;
+      height: 100%;
+      min-height: 50px;
   }
 
 .slide-padding  {
@@ -157,14 +157,24 @@ ion-col, ion-grid {
  }
 
  .swiper-slide img {
-       height: 100%;
+   height: 100%;
    width:100%;
+ }
+
+ .sli2 .sliderCard {
+   min-height: 125px;
+  height: 125px;
+ }
+
+ .sli3 .sliderCard {
+   min-height: 125px;
+  height: 125px;
  }
 
 
  .sli1 img {
    height: 100%;
- min-height: 281px;
+ min-height: 100px;
  }
 
  .sli2 img {

@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Feed</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n\n<ion-grid fixed>\n\n  <ion-row>\n<!-- [checked] postsavi aktivan tag -->\n    <ion-col size=\"12\">\n      <ion-segment scrollable=\"true\" [(ngModel)]=\"selectedIdx\">\n          <ion-segment-button\n          (ionSelect)=\"getPostByCategories(category.id)\"\n          [checked]=\"category?.name === 'Free Agency'\"\n          *ngFor= \"let category of categories; first as isFirst\" >\n              <ion-label>{{ category.name }}</ion-label>\n          </ion-segment-button>\n      </ion-segment>\n\n    </ion-col>\n\n  </ion-row>\n\n\n</ion-grid>\n\n<ion-card *ngFor=\"let post of postsPerCat\">\n  <ion-card-header>\n    <ion-card-title [innerHTML]=\"post.title.rendered\"></ion-card-title>\n    <ion-card-subtitle>{{ post.date_gmt | date }}</ion-card-subtitle>\n  </ion-card-header>\n  <ion-card-content>\n    <img [src]=\"post.media_url\">\n    <div [innerHTML]=\"post.excerpt.rendered\"></div>\n    <ion-button expand=\"full\" fill=\"clear\" [routerLink]=\"['/tabs/home/post/' + post.id]\" class=\"ion-text-right\">Read More...</ion-button>\n  </ion-card-content>\n</ion-card>\n\n<ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadMore($event)\">\n  <ion-infinite-scroll-content loadingText=\"Loading more posts...\">\n  </ion-infinite-scroll-content>\n</ion-infinite-scroll>\n\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Feed</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-grid fixed>\n    <ion-row>\n      <!-- [checked] postsavi aktivan tag -->\n      <ion-col size=\"12\">\n        <ion-segment scrollable=\"true\" [(ngModel)]=\"selectedIdx\">\n          <ion-segment-button (ionSelect)=\"getPostByCategories(category.id)\" [checked]=\"category?.name === 'Free Agency'\" *ngFor=\"let category of categories; first as isFirst\">\n            <ion-label>{{ category.name }}</ion-label>\n          </ion-segment-button>\n        </ion-segment>\n      </ion-col>\n    </ion-row>\n\n  </ion-grid>\n\n  <ion-card *ngFor=\"let post of postsPerCat\">\n    <ion-card-header>\n      <ion-card-title [innerHTML]=\"post.title.rendered\"></ion-card-title>\n      <ion-card-subtitle>{{ post.date_gmt | date }}</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <img [src]=\"post.media_url\">\n      <div [innerHTML]=\"post.excerpt.rendered\"></div>\n      <ion-button expand=\"full\" fill=\"solid\" [routerLink]=\"['/tabs/home/post/' + post.id]\" class=\"ion-text-right\">Read More...</ion-button>\n    </ion-card-content>\n  </ion-card>\n<!--\n  <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadMore($event)\">\n    <ion-infinite-scroll-content loadingText=\"Loading more posts...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n-->\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -81,16 +81,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../providers/word-press/word-press */ "./src/app/providers/word-press/word-press.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../providers/loader.service */ "./src/app/providers/loader.service.ts");
 
 
 
 
 let FeedPage = class FeedPage {
-    constructor(wp, loadingCtrl) {
+    constructor(wp, loadingService) {
         this.wp = wp;
-        this.loadingCtrl = loadingCtrl;
-        //categories = ['India','World','US','Croatia','Phillipines','Russia'];
+        this.loadingService = loadingService;
         this.categories = [];
         this.categoryID = 0;
         this.postsPerCat = [];
@@ -101,47 +100,31 @@ let FeedPage = class FeedPage {
     }
     ngOnInit() {
         this.getCategories();
-        console.log(this.categories);
     }
     getCategories() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            let loading = yield this.loadingCtrl.create({
-                message: 'Loading Data...',
-                translucent: true,
-                cssClass: 'custom-loading'
-            });
-            yield loading.present();
+            yield this.loadingService.showLoading('ifOfLoading');
             return this.wp.getAllCategories().subscribe(res => {
                 this.categories = res;
                 console.log(this.categories);
                 this.getPostByCategories(this.categories[0].id);
-                loading.dismiss();
+                this.loadingService.dismissLoader('ifOfLoading');
             });
         });
     }
     getCatByID(id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            let loading = yield this.loadingCtrl.create({
-                message: 'Loading Data...',
-                translucent: true,
-                cssClass: 'custom-loading'
-            });
-            yield loading.present();
+            yield this.loadingService.showLoading('ifOfLoading2');
             this.wp.getCathegory(id).subscribe(res => {
                 this.categories = res;
                 console.log(this.categories);
-                loading.dismiss();
+                this.loadingService.dismissLoader('ifOfLoading2');
             });
         });
     }
     getPostByCategories(id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            let loading = yield this.loadingCtrl.create({
-                message: 'Loading Data...',
-                translucent: true,
-                cssClass: 'custom-loading'
-            });
-            yield loading.present();
+            yield this.loadingService.showLoading('ifOfLoading3');
             this.first = false;
             this.isFirst = false;
             this.wp.getPostsByCategory(id).subscribe(res => {
@@ -149,26 +132,14 @@ let FeedPage = class FeedPage {
                 this.count = this.wp.totalPosts;
                 //console.log(this.postsPerCat);
                 //console.log(this.categories);
-                loading.dismiss();
+                this.loadingService.dismissLoader('ifOfLoading3');
             });
-        });
-    }
-    loadMore(event) {
-        this.page++;
-        this.wp.getPostsByCategory(this.page).subscribe(res => {
-            this.postsPerCat = [...this.postsPerCat, ...res];
-            event.target.complete();
-            console.log(this.postsPerCat);
-            // Disable infinite loading when maximum reached
-            if (this.page == this.wp.pages) {
-                event.target.disabled = true;
-            }
         });
     }
 };
 FeedPage.ctorParameters = () => [
     { type: _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_2__["WordpressService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] }
+    { type: _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__["LoaderService"] }
 ];
 FeedPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -176,7 +147,7 @@ FeedPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./feed.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/feed/feed.page.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./feed.page.scss */ "./src/app/pages/feed/feed.page.scss")).default]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_2__["WordpressService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_2__["WordpressService"], _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__["LoaderService"]])
 ], FeedPage);
 
 

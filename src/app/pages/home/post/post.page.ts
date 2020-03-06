@@ -35,6 +35,7 @@ export class PostPage implements OnInit {
       this.getCategory(this.post.categories[0]);
       this.loadPostsByTags(this.post.tags[0]);
       this.getTag(this.post.tags[0]);
+      console.log(this.post);
       this.loadingService.dismissLoader('ifOfLoading');
     });
   }

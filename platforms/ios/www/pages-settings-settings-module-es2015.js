@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <!-- defaultHref=\"/tabs/home\" -->\n      <ion-button (click)=\"myBackButton()\">\n        <ion-icon slot=\"icon-only\" name=\"md-arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title [innerHTML]=\"Settings\"></ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <!--<ion-button (click)=\"delete()\">delete</ion-button>-->\n  <ion-list>\n    <br><br>\n    <ion-button expand=\"full\" color=\"secondary\" (click)=\"deleteHystory()\">Delete Hystory</ion-button>\n    <br><br>\n    <ion-button expand=\"full\" color=\"secondary\" (click)=\"deleteFavorites()\">Delete Favorites</ion-button>\n\n  </ion-list>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <!-- defaultHref=\"/tabs/home\" -->\n      <ion-button (click)=\"myBackButton()\">\n        <ion-icon slot=\"icon-only\" name=\"md-arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>Settings</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <!--<ion-button (click)=\"delete()\">delete</ion-button>-->\n  <ion-list>\n    <br><br>\n    <ion-button expand=\"full\" color=\"secondary\" (click)=\"deleteHystory()\">Delete Hystory</ion-button>\n    <br><br>\n    <ion-button expand=\"full\" color=\"secondary\" (click)=\"deleteFavorites()\">Delete Favorites</ion-button>\n  </ion-list>\n</ion-content>\n");
 
 /***/ }),
 

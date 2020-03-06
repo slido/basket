@@ -498,7 +498,7 @@ var __values = (this && this.__values) || function (o) {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Search</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/tabs/home\"></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-searchbar placeholder=\"Search Posts\" (ionChange)=\"onSearchChange($event)\"></ion-searchbar>\n<!--\n    <ion-list *ngIf=\"posts.length == 0\">\n        <ion-item *ngFor=\"let i of [1,2,3,4,5]\">\n          <ion-avatar slot=\"start\">\n            <ion-skeleton-text animated></ion-skeleton-text>\n          </ion-avatar>\n          <ion-label class=\"ion-text-capitalize\">\n            <h2>\n              <ion-skeleton-text animated style=\"width: 50%\"></ion-skeleton-text>\n            </h2>\n            <p>\n              <ion-skeleton-text animated style=\"width: 20%\"></ion-skeleton-text>\n            </p>\n          </ion-label>\n        </ion-item>\n      </ion-list>\n      -->\n  <ion-list>\n    <ion-item *ngFor=\"let post of posts\" [routerLink]=\"['/tabs/home/post/' + post?.id]\">\n      <ion-avatar slot=\"start\">\n        <img [src]=\"post?.fimg_url\" style=\"background: #F2F2F2;\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-capitalize\">\n        <h2 [innerHTML]=\"post?.title.rendered\"></h2>\n        <p [innerHTML]=\"post?.title.rendered\"></p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n\n\n</ion-content>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Search</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/tabs/home\"></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-searchbar clear-input debounce=\"1000\" autocorrect=\"on\" autocomplete=\"on\" animated showCancelButton=\"focus\" cancelButtonText=\"Cancel\" placeholder=\"Search Posts\" (ionChange)=\"onSearchChange($event)\"></ion-searchbar>\n  <ion-list>\n    <ion-item *ngFor=\"let post of posts\" [routerLink]=\"['/tabs/home/post/' + post?.id]\">\n      <ion-avatar slot=\"start\">\n        <img [src]=\"post?.fimg_url\" style=\"background: #F2F2F2;\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-capitalize\">\n        <h2 [innerHTML]=\"post?.title.rendered\"></h2>\n        <p [innerHTML]=\"post?.title.rendered\"></p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>\n");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -850,7 +850,7 @@ var __values = (this && this.__values) || function (o) {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */");
+            /* harmony default export */ __webpack_exports__["default"] = ("ion-header ion-toolbar:first-child {\n  padding-top: 0 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9NYWNQcm8vRGVza3RvcC9ERUNPREVSL0Jhc2tldC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1oZWFkZXIgaW9uLXRvb2xiYXI6Zmlyc3QtY2hpbGQge1xuICBwYWRkaW5nLXRvcDowICFpbXBvcnRhbnQ7XG59XG4iLCJpb24taGVhZGVyIGlvbi10b29sYmFyOmZpcnN0LWNoaWxkIHtcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcbn0iXX0= */");
             /***/ 
         }),
         /***/ "./src/app/app.component.ts": 
@@ -872,13 +872,18 @@ var __values = (this && this.__values) || function (o) {
                     this.platform = platform;
                     this.splashScreen = splashScreen;
                     this.statusBar = statusBar;
+                    this.splashScreen.show();
                     this.initializeApp();
                 }
                 AppComponent.prototype.initializeApp = function () {
                     var _this = this;
                     this.platform.ready().then(function () {
-                        _this.statusBar.styleDefault();
-                        _this.splashScreen.hide();
+                        //alert("this fires");
+                        //this.statusBar.styleDefault();
+                        //this.splashScreen.hide();
+                        setTimeout(function () {
+                            _this.splashScreen.hide();
+                        }, 1000);
                     });
                 };
                 return AppComponent;
@@ -1003,39 +1008,30 @@ var __values = (this && this.__values) || function (o) {
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../providers/word-press/word-press */ "./src/app/providers/word-press/word-press.ts");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+            /* harmony import */ var _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../providers/loader.service */ "./src/app/providers/loader.service.ts");
             var SearchPage = /** @class */ (function () {
-                function SearchPage(wp, loadingCtrl) {
+                function SearchPage(wp, loadingService) {
                     this.wp = wp;
-                    this.loadingCtrl = loadingCtrl;
+                    this.loadingService = loadingService;
                     this.posts = [];
                     this.page = 1;
                     this.count = null;
                     this.poke = [];
                     this.offset = 0;
                 }
-                SearchPage.prototype.ngOnInit = function () {
-                    //this.loadPosts();
-                };
                 SearchPage.prototype.loadPosts = function () {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var loading;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.loadingCtrl.create({
-                                        message: 'Loading Data...'
-                                    })];
+                                case 0: return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
                                     _a.sent();
                                     this.wp.getPostsSearch().subscribe(function (res) {
                                         _this.count = _this.wp.totalPosts;
                                         _this.posts = res;
                                         console.log(_this.posts);
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading');
                                     });
                                     return [2 /*return*/];
                             }
@@ -1044,19 +1040,14 @@ var __values = (this && this.__values) || function (o) {
                 };
                 SearchPage.prototype.onSearchChange = function (e) {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var value, loading;
+                        var value;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0:
                                     value = e.detail.value;
-                                    return [4 /*yield*/, this.loadingCtrl.create({
-                                            message: 'Loading Data...'
-                                        })];
+                                    return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading2')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
                                     _a.sent();
                                     if (value == '') {
                                         this.offset = 0;
@@ -1065,7 +1056,7 @@ var __values = (this && this.__values) || function (o) {
                                     }
                                     this.wp.findPost(value).subscribe(function (res) {
                                         _this.posts = res;
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading2');
                                     }, function (err) {
                                         _this.posts = [];
                                     });
@@ -1078,7 +1069,7 @@ var __values = (this && this.__values) || function (o) {
             }());
             SearchPage.ctorParameters = function () { return [
                 { type: _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"] },
-                { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] }
+                { type: _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__["LoaderService"] }
             ]; };
             SearchPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -1086,8 +1077,66 @@ var __values = (this && this.__values) || function (o) {
                     template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./search.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/search/search.page.html")).default,
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./search.page.scss */ "./src/app/pages/search/search.page.scss")).default]
                 }),
-                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"]])
+                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"], _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__["LoaderService"]])
             ], SearchPage);
+            /***/ 
+        }),
+        /***/ "./src/app/providers/loader.service.ts": 
+        /*!*********************************************!*\
+          !*** ./src/app/providers/loader.service.ts ***!
+          \*********************************************/
+        /*! exports provided: LoaderService */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoaderService", function () { return LoaderService; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+            var LoaderService = /** @class */ (function () {
+                function LoaderService(loadingController) {
+                    this.loadingController = loadingController;
+                    this.isLoading = false;
+                }
+                LoaderService.prototype.showLoading = function (loadingId, loadingMessage) {
+                    if (loadingMessage === void 0) { loadingMessage = 'Loading data...'; }
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+                        var loading;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.loadingController.create({
+                                        id: loadingId,
+                                        message: loadingMessage
+                                    })];
+                                case 1:
+                                    loading = _a.sent();
+                                    return [4 /*yield*/, loading.present()];
+                                case 2: return [2 /*return*/, _a.sent()];
+                            }
+                        });
+                    });
+                };
+                LoaderService.prototype.dismissLoader = function (loadingId) {
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.loadingController.dismiss(null, null, loadingId).then(function () { return console.log('loading dismissed'); })];
+                                case 1: return [2 /*return*/, _a.sent()];
+                            }
+                        });
+                    });
+                };
+                return LoaderService;
+            }());
+            LoaderService.ctorParameters = function () { return [
+                { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] }
+            ]; };
+            LoaderService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+                    providedIn: 'root'
+                }),
+                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]])
+            ], LoaderService);
             /***/ 
         }),
         /***/ "./src/app/providers/word-press/word-press.ts": 
@@ -1177,14 +1226,14 @@ var __values = (this && this.__values) || function (o) {
                                 _this.favorite = [];
                             }
                         }
-                        console.log(_this.favorite);
+                        //console.log(this.favorite);
                         var target = _this.favorite.find(function (temp) { return temp.id == id; });
                         if (!target) {
                             _this.favorite.push(post);
                             localStorage.setItem('favoriteList', JSON.stringify(_this.favorite));
                         }
                         else {
-                            console.log("its in allready");
+                            //console.log("its in allready")
                         }
                         return _this.favorite;
                     }));
@@ -1243,7 +1292,7 @@ var __values = (this && this.__values) || function (o) {
                     }));
                 };
                 WordpressService.prototype.getPostsByCategory = function (cat) {
-                    return this.http.get(this.url + "posts?categories=" + cat).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
+                    return this.http.get(this.url + "posts?categories=" + cat + "&per_page=10").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
                         var e_3, _a;
                         var data = resp;
                         try {
@@ -1268,9 +1317,6 @@ var __values = (this && this.__values) || function (o) {
                     if (this.hystory.indexOf(filteredValue) == -1) {
                         localStorage.setItem('hystoryList', JSON.stringify(this.hystory));
                     }
-                };
-                WordpressService.prototype.getDimensionsByFilter = function (id) {
-                    //return questions.filter(x => x.id === id);
                 };
                 WordpressService.prototype.load = function () {
                     console.log(localStorage.getItem('hystoryList'));

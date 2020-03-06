@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("\n<ion-header no-border>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n\n      <ion-button (click)=\"myBackButton()\">\n        <ion-icon slot=\"icon-only\" name=\"md-arrow-back\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title [innerHTML]=\"post?.title.rendered\"></ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content fullscreen>\n\n  <div *ngIf=\"post\">\n    <img [src]=\"post.media_url\" [style.width]=\"'100%'\">\n    <div class=\"author\">Author: {{ user?.name}}</div><br>\n    <div class=\"cath\">Cath: {{ category?.name}}</div><br>\n    <div class=\"cath\">Tag: {{ tagName?.name }}</div><br><br>\n    &nbsp;&nbsp;&nbsp;<ion-button (click)=\"addToFavorites(post.id)\" end>\n      <ion-icon name=\"heart\" end></ion-icon>\n    </ion-button>\n\n    <div [innerHTML]=\"post.content.rendered\" class=\"ion-padding\"></div>\n  </div>\n\n\n  <div class=\"cath\" *ngIf=\"post\">Related Articles:</div><br>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"10\">\n\n        <ion-slides #slideWithNav [options]=\"sliderConfig\">\n\n          <ion-slide *ngFor=\"let post of posts\" class=\"slider1\" [routerLink]=\"['/tabs/home/post/' + post.id]\">\n            <img class=\"relImg\" [src]=\"post.fimg_url\" [style.width]=\"'100%'\">\n            <div [innerHTML]=\"post.title.rendered\" class=\"relText\"></div>\n          </ion-slide>\n\n        </ion-slides>\n\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n\n\n\n\n\n<!--\n  <ion-card *ngFor=\"let post of posts\">\n    <ion-card-header>\n      <ion-card-title [innerHTML]=\"post.title.rendered\"></ion-card-title>\n      <ion-card-subtitle>{{ post.date_gmt | date }}</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <img [src]=\"post.media_url\">\n      <div [innerHTML]=\"post.excerpt.rendered\"></div>\n      <ion-button expand=\"full\" fill=\"clear\" [routerLink]=\"['/tabs/home/post/' + post.id]\" class=\"ion-text-right\">Read More...</ion-button>\n    </ion-card-content>\n  </ion-card>\n-->\n</ion-content>\n\n<ion-footer color=\"secondary\">\n  <ion-toolbar>\n    <ion-button expand=\"full\" fill=\"clear\" (click)=\"openOriginal()\">\n      Open Original\n    </ion-button>\n  </ion-toolbar>\n</ion-footer>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("\n<ion-header no-border>\n  <ion-toolbar translucent>\n    <ion-buttons slot=\"start\">\n\n      <ion-button (click)=\"myBackButton()\" class=\"bckBtn\" fill=\"clear\">\n        <ion-icon slot=\"icon-only\" name=\"md-arrow-back\"></ion-icon>\n      </ion-button>\n      </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content fullscreen>\n\n\n  <div *ngIf=\"post\">\n    <div class=\"imgWrapper\">\n      <ion-title class=\"dTitle\" [innerHTML]=\"post?.title.rendered\"></ion-title>\n      <img [src]=\"post.media_url\" [style.width]=\"'100%'\">\n    </div>\n    <div class=\"author\">Author: {{ user?.name}}</div><br>\n    <div class=\"cath\">Cath: {{ category?.name}}</div><br>\n    <div class=\"cath\">Tag: {{ tagName?.name }}</div><br><br>\n    &nbsp;&nbsp;&nbsp;<ion-button class=\"favBtn\" (click)=\"addToFavorites(post.id)\" >\n      <ion-icon name=\"heart\" end></ion-icon>\n    </ion-button>\n\n    <div [innerHTML]=\"post.content.rendered\" class=\"ion-padding\"></div>\n  </div>\n\n\n  <div class=\"cath\" *ngIf=\"post\">Related Articles:</div><br>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"10\">\n        <ion-slides #slideWithNav class=\"slide-padding sli3\" pager=\"true\" [options]=\"sliderConfig\" >\n            <ion-slide *ngFor=\"let post of posts\">\n              <ion-card [routerLink]=\"['/tabs/home/post/' + post.id]\">\n                <img [src]=\"post.fimg_url\" alt=\"{{post.title.rendered}}\"/>\n\n                  <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n\n              </ion-card>\n            </ion-slide>\n        </ion-slides>\n\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n");
             /***/ 
         }),
         /***/ "./src/app/pages/home/post/post.module.ts": 
@@ -79,7 +79,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("ion-content {\n  /*--background: black;*/\n}\nion-content .author, ion-content .cath {\n  margin: 10px 16px -20px 16px;\n}\nion-content .slider1 {\n  position: relative;\n  display: inline;\n  cursor: pointer;\n}\nion-content .relImg {\n  position: absolute;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: none;\n  max-height: none;\n  z-index: 2;\n}\nion-content .relText {\n  display: inline-flex;\n  z-index: 3;\n  color: #fff;\n  font-family: \"Times New Roman\", Times, serif;\n  font-size: 12px;\n  position: relative;\n}\nion-content ion-slide {\n  height: 100px;\n}\nion-content .custom-loading {\n  opacity: 1 !important;\n  background: #fff !important;\n  position: absolute !important;\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9NYWNQcm8vRGVza3RvcC9ERUNPREVSL0Jhc2tldC9zcmMvYXBwL3BhZ2VzL2hvbWUvcG9zdC9wb3N0LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvaG9tZS9wb3N0L3Bvc3QucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0csdUJBQUE7QUNBSDtBREVHO0VBQ00sNEJBQUE7QUNBVDtBREVHO0VBQ0Usa0JBQUE7RUFDQSxlQUFBO0VBQ0EsZUFBQTtBQ0FMO0FERUc7RUFDRSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxvQkFBQTtLQUFBLGlCQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsVUFBQTtBQ0FMO0FERUc7RUFDRSxvQkFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsNENBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUNBTDtBREdHO0VBQ0UsYUFBQTtBQ0RMO0FESUc7RUFDRSxxQkFBQTtFQUNBLDJCQUFBO0VBQ0EsNkJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0FDRkwiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ob21lL3Bvc3QvcG9zdC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbmlvbi1jb250ZW50IHtcbiAgIC8qLS1iYWNrZ3JvdW5kOiBibGFjazsqL1xuXG4gICAuYXV0aG9yLCAuY2F0aCB7XG4gICAgICAgICBtYXJnaW46IDEwcHggMTZweCAtMjBweCAxNnB4O1xuICAgfVxuICAgLnNsaWRlcjEge1xuICAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcbiAgICAgZGlzcGxheTogaW5saW5lO1xuICAgICBjdXJzb3I6cG9pbnRlcjtcbiAgIH1cbiAgIC5yZWxJbWcge1xuICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgIGhlaWdodDogMjAwcHg7XG4gICAgIG9iamVjdC1maXQ6IGNvdmVyO1xuICAgICBtYXgtd2lkdGg6bm9uZTtcbiAgICAgbWF4LWhlaWdodDpub25lO1xuICAgICB6LWluZGV4OjI7XG4gICB9XG4gICAucmVsVGV4dCB7XG4gICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICAgICB6LWluZGV4OjM7XG4gICAgIGNvbG9yOiNmZmY7XG4gICAgIGZvbnQtZmFtaWx5OiBcIlRpbWVzIE5ldyBSb21hblwiLCBUaW1lcywgc2VyaWY7XG4gICAgIGZvbnQtc2l6ZToxMnB4O1xuICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICB9XG5cbiAgIGlvbi1zbGlkZSB7XG4gICAgIGhlaWdodDogMTAwcHg7XG4gICB9XG5cbiAgIC5jdXN0b20tbG9hZGluZyB7XG4gICAgIG9wYWNpdHk6MSAhaW1wb3J0YW50O1xuICAgICBiYWNrZ3JvdW5kOiAjZmZmICFpbXBvcnRhbnQ7XG4gICAgIHBvc2l0aW9uOmFic29sdXRlICFpbXBvcnRhbnQ7XG4gICAgIHdpZHRoOjEwMCU7XG4gICAgIGhlaWdodDoxMDAlO1xuICAgICBtaW4taGVpZ2h0OjEwMCU7XG4gICB9XG59XG4iLCJpb24tY29udGVudCB7XG4gIC8qLS1iYWNrZ3JvdW5kOiBibGFjazsqL1xufVxuaW9uLWNvbnRlbnQgLmF1dGhvciwgaW9uLWNvbnRlbnQgLmNhdGgge1xuICBtYXJnaW46IDEwcHggMTZweCAtMjBweCAxNnB4O1xufVxuaW9uLWNvbnRlbnQgLnNsaWRlcjEge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGRpc3BsYXk6IGlubGluZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuaW9uLWNvbnRlbnQgLnJlbEltZyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgaGVpZ2h0OiAyMDBweDtcbiAgb2JqZWN0LWZpdDogY292ZXI7XG4gIG1heC13aWR0aDogbm9uZTtcbiAgbWF4LWhlaWdodDogbm9uZTtcbiAgei1pbmRleDogMjtcbn1cbmlvbi1jb250ZW50IC5yZWxUZXh0IHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIHotaW5kZXg6IDM7XG4gIGNvbG9yOiAjZmZmO1xuICBmb250LWZhbWlseTogXCJUaW1lcyBOZXcgUm9tYW5cIiwgVGltZXMsIHNlcmlmO1xuICBmb250LXNpemU6IDEycHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbmlvbi1jb250ZW50IGlvbi1zbGlkZSB7XG4gIGhlaWdodDogMTAwcHg7XG59XG5pb24tY29udGVudCAuY3VzdG9tLWxvYWRpbmcge1xuICBvcGFjaXR5OiAxICFpbXBvcnRhbnQ7XG4gIGJhY2tncm91bmQ6ICNmZmYgIWltcG9ydGFudDtcbiAgcG9zaXRpb246IGFic29sdXRlICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG1pbi1oZWlnaHQ6IDEwMCU7XG59Il19 */");
+            /* harmony default export */ __webpack_exports__["default"] = ("ion-content {\n  /*--background: black;*/\n}\nion-content .author,\nion-content .cath {\n  margin: 10px 16px -20px;\n}\nion-content .slider1 {\n  position: relative;\n  display: inline;\n  cursor: pointer;\n}\nion-content .relImg {\n  position: absolute;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: none;\n  max-height: none;\n  z-index: 2;\n}\nion-content .relText {\n  display: inline-flex;\n  z-index: 3;\n  color: #fff;\n  font-family: \"Times New Roman\", Times, serif;\n  font-size: 12px;\n  position: relative;\n}\nion-content ion-slide {\n  height: 100px;\n}\nion-content .custom-loading {\n  opacity: 1 !important;\n  background: #fff !important;\n  position: absolute !important;\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n}\nion-content .dTitle {\n  position: absolute;\n  color: #fff;\n  bottom: 20px;\n  width: 100%;\n  z-index: 10;\n  padding: 10px;\n  background: #000;\n  opacity: 0.8;\n  margin: 0 10px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: 16px;\n  max-height: 40px;\n  -webkit-line-clamp: 2;\n  /* Write the number of\n     lines you want to be\n     displayed */\n  -webkit-box-orient: vertical;\n}\nion-content .imgWrapper {\n  position: relative;\n}\nion-toolbar {\n  --background: transparent;\n  --ion-color-base: transparent !important;\n  position: absolute;\n}\n.bckBtn {\n  color: #fff !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9NYWNQcm8vRGVza3RvcC9ERUNPREVSL0Jhc2tldC9zcmMvYXBwL3BhZ2VzL2hvbWUvcG9zdC9wb3N0LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvaG9tZS9wb3N0L3Bvc3QucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQUE7QUNDRjtBREFFOztFQUVFLHVCQUFBO0FDRUo7QURDRTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7QUNDSjtBREVFO0VBQ0Usa0JBQUE7RUFDQSxhQUFBO0VBQ0Esb0JBQUE7S0FBQSxpQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLFVBQUE7QUNBSjtBREdFO0VBQ0Usb0JBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtFQUNBLDRDQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FDREo7QURJRTtFQUNFLGFBQUE7QUNGSjtBREtFO0VBQ0UscUJBQUE7RUFDQSwyQkFBQTtFQUNBLDZCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtBQ0hKO0FEUUU7RUFDRSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsY0FBQTtFQUNBLGdCQUFBO0VBQ0EsdUJBQUE7RUFDQSxvQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUF1Qjs7Z0JBQUE7RUFHdkIsNEJBQUE7QUNMSjtBRFFFO0VBQ0Usa0JBQUE7QUNOSjtBRFVBO0VBQ0UseUJBQUE7RUFDQSx3Q0FBQTtFQUNBLGtCQUFBO0FDUEY7QURVQTtFQUNFLHNCQUFBO0FDUEYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ob21lL3Bvc3QvcG9zdC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY29udGVudCB7XG4gIC8qLS1iYWNrZ3JvdW5kOiBibGFjazsqL1xuICAuYXV0aG9yLFxuICAuY2F0aCB7XG4gICAgbWFyZ2luOiAxMHB4IDE2cHggLTIwcHg7XG4gIH1cblxuICAuc2xpZGVyMSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGRpc3BsYXk6IGlubGluZTtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gIH1cblxuICAucmVsSW1nIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgaGVpZ2h0OiAyMDBweDtcbiAgICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgbWF4LWhlaWdodDogbm9uZTtcbiAgICB6LWluZGV4OiAyO1xuICB9XG5cbiAgLnJlbFRleHQge1xuICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICAgIHotaW5kZXg6IDM7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgZm9udC1mYW1pbHk6IFwiVGltZXMgTmV3IFJvbWFuXCIsIFRpbWVzLCBzZXJpZjtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB9XG5cbiAgaW9uLXNsaWRlIHtcbiAgICBoZWlnaHQ6IDEwMHB4O1xuICB9XG5cbiAgLmN1c3RvbS1sb2FkaW5nIHtcbiAgICBvcGFjaXR5OiAxICFpbXBvcnRhbnQ7XG4gICAgYmFja2dyb3VuZDogI2ZmZiAhaW1wb3J0YW50O1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZSAhaW1wb3J0YW50O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgICBtaW4taGVpZ2h0OiAxMDAlO1xuICB9XG5cbiAgLmZhdkJ0biB7fVxuXG4gIC5kVGl0bGUge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBjb2xvcjogI2ZmZjtcbiAgICBib3R0b206IDIwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgei1pbmRleDogMTA7XG4gICAgcGFkZGluZzogMTBweDtcbiAgICBiYWNrZ3JvdW5kOiAjMDAwO1xuICAgIG9wYWNpdHk6IDAuODtcbiAgICBtYXJnaW46IDAgMTBweDtcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICAgIGRpc3BsYXk6IC13ZWJraXQtYm94O1xuICAgIGxpbmUtaGVpZ2h0OiAxNnB4O1xuICAgIG1heC1oZWlnaHQ6IDQwcHg7XG4gICAgLXdlYmtpdC1saW5lLWNsYW1wOiAyOyAvKiBXcml0ZSB0aGUgbnVtYmVyIG9mXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsaW5lcyB5b3Ugd2FudCB0byBiZVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGxheWVkICovXG4gICAgLXdlYmtpdC1ib3gtb3JpZW50OiB2ZXJ0aWNhbDtcbiAgfVxuXG4gIC5pbWdXcmFwcGVyIHtcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcbiAgfVxufVxuXG5pb24tdG9vbGJhciB7XG4gIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XG4gIC0taW9uLWNvbG9yLWJhc2U6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbn1cblxuLmJja0J0biB7XG4gIGNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XG59XG4iLCJpb24tY29udGVudCB7XG4gIC8qLS1iYWNrZ3JvdW5kOiBibGFjazsqL1xufVxuaW9uLWNvbnRlbnQgLmF1dGhvcixcbmlvbi1jb250ZW50IC5jYXRoIHtcbiAgbWFyZ2luOiAxMHB4IDE2cHggLTIwcHg7XG59XG5pb24tY29udGVudCAuc2xpZGVyMSB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogaW5saW5lO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5pb24tY29udGVudCAucmVsSW1nIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBoZWlnaHQ6IDIwMHB4O1xuICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgbWF4LXdpZHRoOiBub25lO1xuICBtYXgtaGVpZ2h0OiBub25lO1xuICB6LWluZGV4OiAyO1xufVxuaW9uLWNvbnRlbnQgLnJlbFRleHQge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgei1pbmRleDogMztcbiAgY29sb3I6ICNmZmY7XG4gIGZvbnQtZmFtaWx5OiBcIlRpbWVzIE5ldyBSb21hblwiLCBUaW1lcywgc2VyaWY7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuaW9uLWNvbnRlbnQgaW9uLXNsaWRlIHtcbiAgaGVpZ2h0OiAxMDBweDtcbn1cbmlvbi1jb250ZW50IC5jdXN0b20tbG9hZGluZyB7XG4gIG9wYWNpdHk6IDEgIWltcG9ydGFudDtcbiAgYmFja2dyb3VuZDogI2ZmZiAhaW1wb3J0YW50O1xuICBwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgbWluLWhlaWdodDogMTAwJTtcbn1cbmlvbi1jb250ZW50IC5kVGl0bGUge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGNvbG9yOiAjZmZmO1xuICBib3R0b206IDIwcHg7XG4gIHdpZHRoOiAxMDAlO1xuICB6LWluZGV4OiAxMDtcbiAgcGFkZGluZzogMTBweDtcbiAgYmFja2dyb3VuZDogIzAwMDtcbiAgb3BhY2l0eTogMC44O1xuICBtYXJnaW46IDAgMTBweDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xuICBsaW5lLWhlaWdodDogMTZweDtcbiAgbWF4LWhlaWdodDogNDBweDtcbiAgLXdlYmtpdC1saW5lLWNsYW1wOiAyO1xuICAvKiBXcml0ZSB0aGUgbnVtYmVyIG9mXG4gICAgIGxpbmVzIHlvdSB3YW50IHRvIGJlXG4gICAgIGRpc3BsYXllZCAqL1xuICAtd2Via2l0LWJveC1vcmllbnQ6IHZlcnRpY2FsO1xufVxuaW9uLWNvbnRlbnQgLmltZ1dyYXBwZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbmlvbi10b29sYmFyIHtcbiAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcbiAgLS1pb24tY29sb3ItYmFzZTogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xufVxuXG4uYmNrQnRuIHtcbiAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcbn0iXX0= */");
             /***/ 
         }),
         /***/ "./src/app/pages/home/post/post.page.ts": 
@@ -95,14 +95,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             /* harmony import */ var _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../providers/word-press/word-press */ "./src/app/providers/word-press/word-press.ts");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-            /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-            /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+            /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+            /* harmony import */ var _providers_loader_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../providers/loader.service */ "./src/app/providers/loader.service.ts");
             var PostPage = /** @class */ (function () {
-                function PostPage(route, wp, loadingCtrl, location) {
+                function PostPage(route, wp, location, loadingService) {
                     this.route = route;
                     this.wp = wp;
-                    this.loadingCtrl = loadingCtrl;
                     this.location = location;
+                    this.loadingService = loadingService;
                     this.hystory = [];
                     this.favorites = [];
                     this.sliderConfig = {
@@ -111,19 +111,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 }
                 PostPage.prototype.ngOnInit = function () {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var loading, id;
+                        var id;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.loadingCtrl.create({
-                                        message: 'Loading Data...',
-                                        translucent: true,
-                                        cssClass: 'custom-loading'
-                                    })];
+                                case 0: return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
                                     _a.sent();
                                     id = this.route.snapshot.paramMap.get('id');
                                     this.wp.getPostContent(id).subscribe(function (res) {
@@ -133,7 +126,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                                         _this.getCategory(_this.post.categories[0]);
                                         _this.loadPostsByTags(_this.post.tags[0]);
                                         _this.getTag(_this.post.tags[0]);
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading');
                                     });
                                     return [2 /*return*/];
                             }
@@ -168,23 +161,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 };
                 PostPage.prototype.getTag = function (id) {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var loading;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.loadingCtrl.create({
-                                        message: 'Loading Data...',
-                                        translucent: true,
-                                        cssClass: 'custom-loading'
-                                    })];
+                                case 0: 
+                                //console.log(id);
+                                return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading2')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
+                                    //console.log(id);
                                     _a.sent();
                                     this.wp.getTagName(id).subscribe(function (res) {
                                         _this.tagName = res;
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading2');
                                     });
                                     return [2 /*return*/];
                             }
@@ -246,8 +234,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             PostPage.ctorParameters = function () { return [
                 { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
                 { type: _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"] },
-                { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"] },
-                { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"] }
+                { type: _angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"] },
+                { type: _providers_loader_service__WEBPACK_IMPORTED_MODULE_5__["LoaderService"] }
             ]; };
             PostPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -255,7 +243,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./post.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/post/post.page.html")).default,
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./post.page.scss */ "./src/app/pages/home/post/post.page.scss")).default]
                 }),
-                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"]])
+                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"], _providers_loader_service__WEBPACK_IMPORTED_MODULE_5__["LoaderService"]])
             ], PostPage);
             /***/ 
         })

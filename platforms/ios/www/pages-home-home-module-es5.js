@@ -25,26 +25,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
-};
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-home-home-module"], {
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.page.html": 
         /*!*********************************************************************************!*\
@@ -54,7 +34,7 @@ var __spread = (this && this.__spread) || function () {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Home</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" routerLink=\"/search\" routerDirection=\"root\">\n     <ion-icon slot=\"icon-only\" name=\"search\"></ion-icon>\n   </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n\n<!--\n  <ion-card *ngFor=\"let post of posts\">\n    <ion-card-header>\n      <ion-card-title [innerHTML]=\"post.title.rendered\"></ion-card-title>\n      <ion-card-subtitle>{{ post.date_gmt | date }}</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <img [src]=\"post.media_url\">\n      <div [innerHTML]=\"post.excerpt.rendered\"></div>\n      <ion-button expand=\"full\" fill=\"clear\" [routerLink]=\"['/tabs/home/post/' + post.id]\" class=\"ion-text-right\">Read More...</ion-button>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-grid>\n  <ion-row>\n    <ion-col size-lg=\"3\" size-md=\"4\" size-sm=\"6\" size=\"12\" *ngFor=\"let post of posts\" [routerLink]=\"['/tabs/home/post/' + post.id]\">\n      <ion-card>\n        <img src=\"{{post.media_url}}\" alt=\"{{post.title.rendered}}\"/>\n        <ion-card-header>\n          <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n<div class=\"sub-headers\">\n    <p>Latest News</p>\n</div>\n<ion-slides class=\"slide-padding\" pager=\"true\" [options]=\"sliderConfig\">\n    <ion-slide *ngFor=\"let post of posts\">\n        <div class=\"container\">\n            <ion-img src=\"{{post.media_url}}\"></ion-img>\n            <h2 class=\"slidetitle\">\n                <span class=\"block\">{{post.title.rendered}}</span>\n            </h2>\n            <p class=\"author\">By {{post.author}}, 2h ago</p>\n        </div>\n    </ion-slide>\n</ion-slides>\n-->\n<div class=\"sub-headers\">\n    <p>Found {{ count }} posts</p>\n</div>\n\n<div class=\"sub-headers\">\n    <p>Latest News</p>\n</div>\n<ion-slides class=\"slide-padding sli1\" pager=\"true\" [options]=\"sliderConfig1\" >\n    <ion-slide *ngFor=\"let post of postsPerCat1\">\n      <ion-card [routerLink]=\"['/tabs/home/post/' + post.id]\">\n        <img src=\"{{post.media_url}}\" alt=\"{{post.title.rendered}}\"/>\n        <ion-card-header>\n          <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </ion-slide>\n</ion-slides>\n\n<div class=\"sub-headers\">\n    <p>Free Agency</p>\n</div>\n<ion-slides class=\"slide-padding sli2\" pager=\"true\" [options]=\"sliderConfig2\" >\n    <ion-slide *ngFor=\"let post of postsPerCat2\">\n      <ion-card [routerLink]=\"['/tabs/home/post/' + post.id]\">\n        <img src=\"{{post.media_url}}\" alt=\"{{post.title.rendered}}\"/>\n        <ion-card-header>\n          <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </ion-slide>\n</ion-slides>\n\n<div class=\"sub-headers\">\n    <p>NCAA</p>\n</div>\n<ion-slides class=\"slide-padding sli3\" pager=\"true\" [options]=\"sliderConfig3\" >\n    <ion-slide *ngFor=\"let post of postsPerCat3\">\n      <ion-card [routerLink]=\"['/tabs/home/post/' + post.id]\">\n        <img src=\"{{post.media_url}}\" alt=\"{{post.title.rendered}}\"/>\n        <ion-card-header>\n          <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </ion-slide>\n</ion-slides>\n\n\n\n\n</ion-content>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Home</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button autoHide=\"false\"></ion-menu-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\" routerLink=\"/search\" routerDirection=\"root\">\n      <ion-icon slot=\"icon-only\" name=\"search\"></ion-icon>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n  <div class=\"sub-headers\">\n    <p class=\"firstTitle mg21\">Latest News</p>\n  </div>\n  <ion-slides class=\"slide-padding sli1 slider\" pager=\"true\" [options]=\"sliderConfig1\">\n    <ion-slide *ngFor=\"let post of postsPerCat1\">\n      <ion-card class=\"sliderCard\" [routerLink]=\"['/tabs/home/post/' + post.id]\">\n        <img src=\"{{post.media_url}}\" alt=\"{{post.title.rendered}}\" />\n\n          <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n\n      </ion-card>\n    </ion-slide>\n  </ion-slides>\n\n  <div class=\"sub-headers\">\n    <p  class=\"firstTitle mg0\">Trending</p>\n  </div>\n  <ion-slides class=\"slide-padding sli2  slider\" pager=\"true\" [options]=\"sliderConfig2\">\n    <ion-slide *ngFor=\"let post of postsPerCat2\">\n      <ion-card  class=\"sliderCard\" [routerLink]=\"['/tabs/home/post/' + post.id]\">\n        <img src=\"{{post.media_url}}\" alt=\"{{post.title.rendered}}\" />\n\n          <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n\n      </ion-card>\n    </ion-slide>\n  </ion-slides>\n\n  <div class=\"sub-headers\">\n    <p  class=\"firstTitle mg0\">NCAA</p>\n  </div>\n  <ion-slides class=\"slide-padding sli2 slider\" pager=\"true\" [options]=\"sliderConfig2\">\n    <ion-slide *ngFor=\"let post of postsPerCat3\">\n      <ion-card class=\"sliderCard\"  [routerLink]=\"['/tabs/home/post/' + post.id]\">\n        <img src=\"{{post.media_url}}\" alt=\"{{post.title.rendered}}\" />\n\n          <ion-card-subtitle [innerHTML]=\"post.title.rendered\"></ion-card-subtitle>\n\n      </ion-card>\n    </ion-slide>\n  </ion-slides>\n\n  <div>\n    <p class=\"found\">Found {{ count }} posts</p>\n  </div>\n\n</ion-content>\n");
             /***/ 
         }),
         /***/ "./src/app/pages/home/home.module.ts": 
@@ -99,7 +79,7 @@ var __spread = (this && this.__spread) || function () {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".welcome-card img {\n  max-height: 35vh;\n  overflow: hidden;\n}\n\n.custom-loading {\n  opacity: 1 !important;\n  background: #fff !important;\n  position: absolute !important;\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n}\n\nion-grid ion-card {\n  width: 100%;\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n\nion-grid ion-card ion-card-content {\n  padding: 0 !important;\n}\n\nion-col, ion-grid {\n  width: 100%;\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n\n.container {\n  position: relative;\n  width: 100%;\n}\n\n.slidetitle {\n  position: absolute;\n  bottom: 60px;\n  left: 18px;\n  color: white;\n  text-align: left;\n  font-family: \"Helvetica\";\n  font-size: 14px !important;\n  line-height: 14px;\n  font-weight: 300;\n}\n\n/*\n .block{\n    background-color:rgba(0, 0, 0, 0.5);\n    padding: 4px;\n }\n*/\n\n.author {\n  position: absolute;\n  bottom: 25px;\n  left: 20px;\n  color: #f0f0f0;\n  font-size: 15px !important;\n  font-weight: 300;\n  text-shadow: 1px 1px 3px #000000;\n}\n\n.sub-headers {\n  padding-left: 20px;\n  text-align: center;\n  font-weight: bold;\n}\n\n.sub-headers p {\n  font-size: 20px;\n  font-family: Helvetica;\n}\n\nion-card-subtitle {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: 16px;\n  max-height: 48px;\n  -webkit-line-clamp: 2;\n  /* Write the number of\n     lines you want to be\n     displayed */\n  -webkit-box-orient: vertical;\n}\n\n.slide-padding {\n  padding-bottom: 24px !important;\n}\n\n.slide-padding ion-card-header {\n  background: #f4f4f4;\n}\n\n.swiper-slide img {\n  height: 15vh;\n  width: 100%;\n}\n\n.sli1 img {\n  height: 31vh;\n}\n\n.sli2 img {\n  height: 15vh;\n}\n\n.sli3 img {\n  height: 10vh;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9NYWNQcm8vRGVza3RvcC9ERUNPREVSL0Jhc2tldC9zcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGdCQUFBO0FDQ0Y7O0FERUE7RUFDRSxxQkFBQTtFQUNBLDJCQUFBO0VBQ0EsNkJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0FDQ0Y7O0FER1E7RUFDSSxXQUFBO0VBQ0EseUJBQUE7RUFDQSwwQkFBQTtBQ0FaOztBRENZO0VBQ0kscUJBQUE7QUNDaEI7O0FESUE7RUFDRSxXQUFBO0VBQ0EseUJBQUE7RUFDQSwwQkFBQTtBQ0RGOztBRElBO0VBQ0ssa0JBQUE7RUFDQSxXQUFBO0FDREw7O0FESUE7RUFDSSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0Esd0JBQUE7RUFDQSwwQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNESjs7QURHQTs7Ozs7Q0FBQTs7QUFRQztFQUNHLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFVBQUE7RUFDQSxjQUFBO0VBQ0EsMEJBQUE7RUFDQSxnQkFBQTtFQUNBLGdDQUFBO0FDRko7O0FES0M7RUFDRyxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7QUNGSjs7QURLQztFQUNFLGVBQUE7RUFDQSxzQkFBQTtBQ0ZIOztBREtDO0VBQ0MsZ0JBQUE7RUFDQSx1QkFBQTtFQUNBLG9CQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQXVCOztnQkFBQTtFQUd2Qiw0QkFBQTtBQ0RGOztBRElBO0VBQ0csK0JBQUE7QUNESDs7QURJQztFQUNFLG1CQUFBO0FDREg7O0FESUM7RUFDRSxZQUFBO0VBQ0EsV0FBQTtBQ0RIOztBRElDO0VBQ0UsWUFBQTtBQ0RIOztBRElDO0VBQ0UsWUFBQTtBQ0RIOztBRElDO0VBQ0UsWUFBQTtBQ0RIIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi53ZWxjb21lLWNhcmQgaW1nIHtcbiAgbWF4LWhlaWdodDogMzV2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLmN1c3RvbS1sb2FkaW5nIHtcbiAgb3BhY2l0eToxICFpbXBvcnRhbnQ7XG4gIGJhY2tncm91bmQ6ICNmZmYgIWltcG9ydGFudDtcbiAgcG9zaXRpb246YWJzb2x1dGUgIWltcG9ydGFudDtcbiAgd2lkdGg6MTAwJTtcbiAgaGVpZ2h0OjEwMCU7XG4gIG1pbi1oZWlnaHQ6MTAwJTtcbn1cblxuaW9uLWdyaWR7XG4gICAgICAgIGlvbi1jYXJke1xuICAgICAgICAgICAgd2lkdGg6MTAwJTtcbiAgICAgICAgICAgIG1hcmdpbi1sZWZ0OjAgIWltcG9ydGFudDtcbiAgICAgICAgICAgIG1hcmdpbi1yaWdodDowICFpbXBvcnRhbnQ7XG4gICAgICAgICAgICBpb24tY2FyZC1jb250ZW50e1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cblxuaW9uLWNvbCwgaW9uLWdyaWQge1xuICB3aWR0aDoxMDAlO1xuICBtYXJnaW4tbGVmdDowICFpbXBvcnRhbnQ7XG4gIG1hcmdpbi1yaWdodDowICFpbXBvcnRhbnQ7XG59XG5cbi5jb250YWluZXJ7XG4gICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgd2lkdGg6IDEwMCU7XG4gfVxuXG4uc2xpZGV0aXRsZSB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIGJvdHRvbTogNjBweDtcbiAgICBsZWZ0OiAxOHB4O1xuICAgIGNvbG9yOiB3aGl0ZTtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICAgIGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhJztcbiAgICBmb250LXNpemU6MTRweCAhaW1wb3J0YW50O1xuICAgIGxpbmUtaGVpZ2h0OjE0cHg7XG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcbiB9XG4vKlxuIC5ibG9ja3tcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOnJnYmEoMCwgMCwgMCwgMC41KTtcbiAgICBwYWRkaW5nOiA0cHg7XG4gfVxuKi9cblxuXG4gLmF1dGhvciB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIGJvdHRvbTogMjVweDtcbiAgICBsZWZ0OiAyMHB4O1xuICAgIGNvbG9yOiByZ2IoMjQwLCAyNDAsIDI0MCk7XG4gICAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgICB0ZXh0LXNoYWRvdzogMXB4IDFweCAzcHggIzAwMDAwMDtcbiB9XG5cbiAuc3ViLWhlYWRlcnN7XG4gICAgcGFkZGluZy1sZWZ0OiAyMHB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbiB9XG5cbiAuc3ViLWhlYWRlcnMgcCB7XG4gICBmb250LXNpemU6IDIwcHg7XG4gICBmb250LWZhbWlseTpIZWx2ZXRpY2E7XG4gfVxuXG4gaW9uLWNhcmQtc3VidGl0bGUge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XG4gIGxpbmUtaGVpZ2h0OiAxNnB4O1xuICBtYXgtaGVpZ2h0OiA0OHB4O1xuICAtd2Via2l0LWxpbmUtY2xhbXA6IDI7IC8qIFdyaXRlIHRoZSBudW1iZXIgb2ZcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBsaW5lcyB5b3Ugd2FudCB0byBiZVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc3BsYXllZCAqL1xuICAtd2Via2l0LWJveC1vcmllbnQ6IHZlcnRpY2FsO1xuIH1cblxuLnNsaWRlLXBhZGRpbmcgIHtcbiAgIHBhZGRpbmctYm90dG9tOiAyNHB4ICFpbXBvcnRhbnQ7XG4gfVxuXG4gLnNsaWRlLXBhZGRpbmcgaW9uLWNhcmQtaGVhZGVye1xuICAgYmFja2dyb3VuZDojZjRmNGY0O1xuIH1cblxuIC5zd2lwZXItc2xpZGUgaW1nIHtcbiAgIGhlaWdodDoxNXZoO1xuICAgd2lkdGg6MTAwJTtcbiB9XG5cbiAuc2xpMSBpbWcge1xuICAgaGVpZ2h0OjMxdmg7XG4gfVxuXG4gLnNsaTIgaW1nIHtcbiAgIGhlaWdodDoxNXZoO1xuIH1cblxuIC5zbGkzIGltZyB7XG4gICBoZWlnaHQ6MTB2aDtcbiB9XG4iLCIud2VsY29tZS1jYXJkIGltZyB7XG4gIG1heC1oZWlnaHQ6IDM1dmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5jdXN0b20tbG9hZGluZyB7XG4gIG9wYWNpdHk6IDEgIWltcG9ydGFudDtcbiAgYmFja2dyb3VuZDogI2ZmZiAhaW1wb3J0YW50O1xuICBwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgbWluLWhlaWdodDogMTAwJTtcbn1cblxuaW9uLWdyaWQgaW9uLWNhcmQge1xuICB3aWR0aDogMTAwJTtcbiAgbWFyZ2luLWxlZnQ6IDAgIWltcG9ydGFudDtcbiAgbWFyZ2luLXJpZ2h0OiAwICFpbXBvcnRhbnQ7XG59XG5pb24tZ3JpZCBpb24tY2FyZCBpb24tY2FyZC1jb250ZW50IHtcbiAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xufVxuXG5pb24tY29sLCBpb24tZ3JpZCB7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW4tbGVmdDogMCAhaW1wb3J0YW50O1xuICBtYXJnaW4tcmlnaHQ6IDAgIWltcG9ydGFudDtcbn1cblxuLmNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5zbGlkZXRpdGxlIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDYwcHg7XG4gIGxlZnQ6IDE4cHg7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgZm9udC1mYW1pbHk6IFwiSGVsdmV0aWNhXCI7XG4gIGZvbnQtc2l6ZTogMTRweCAhaW1wb3J0YW50O1xuICBsaW5lLWhlaWdodDogMTRweDtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbn1cblxuLypcbiAuYmxvY2t7XG4gICAgYmFja2dyb3VuZC1jb2xvcjpyZ2JhKDAsIDAsIDAsIDAuNSk7XG4gICAgcGFkZGluZzogNHB4O1xuIH1cbiovXG4uYXV0aG9yIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDI1cHg7XG4gIGxlZnQ6IDIwcHg7XG4gIGNvbG9yOiAjZjBmMGYwO1xuICBmb250LXNpemU6IDE1cHggIWltcG9ydGFudDtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgdGV4dC1zaGFkb3c6IDFweCAxcHggM3B4ICMwMDAwMDA7XG59XG5cbi5zdWItaGVhZGVycyB7XG4gIHBhZGRpbmctbGVmdDogMjBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuLnN1Yi1oZWFkZXJzIHAge1xuICBmb250LXNpemU6IDIwcHg7XG4gIGZvbnQtZmFtaWx5OiBIZWx2ZXRpY2E7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xuICBsaW5lLWhlaWdodDogMTZweDtcbiAgbWF4LWhlaWdodDogNDhweDtcbiAgLXdlYmtpdC1saW5lLWNsYW1wOiAyO1xuICAvKiBXcml0ZSB0aGUgbnVtYmVyIG9mXG4gICAgIGxpbmVzIHlvdSB3YW50IHRvIGJlXG4gICAgIGRpc3BsYXllZCAqL1xuICAtd2Via2l0LWJveC1vcmllbnQ6IHZlcnRpY2FsO1xufVxuXG4uc2xpZGUtcGFkZGluZyB7XG4gIHBhZGRpbmctYm90dG9tOiAyNHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5zbGlkZS1wYWRkaW5nIGlvbi1jYXJkLWhlYWRlciB7XG4gIGJhY2tncm91bmQ6ICNmNGY0ZjQ7XG59XG5cbi5zd2lwZXItc2xpZGUgaW1nIHtcbiAgaGVpZ2h0OiAxNXZoO1xuICB3aWR0aDogMTAwJTtcbn1cblxuLnNsaTEgaW1nIHtcbiAgaGVpZ2h0OiAzMXZoO1xufVxuXG4uc2xpMiBpbWcge1xuICBoZWlnaHQ6IDE1dmg7XG59XG5cbi5zbGkzIGltZyB7XG4gIGhlaWdodDogMTB2aDtcbn0iXX0= */");
+            /* harmony default export */ __webpack_exports__["default"] = (".welcome-card img {\n  max-height: 35vh;\n  overflow: hidden;\n}\n\n.custom-loading {\n  opacity: 1 !important;\n  background: #fff !important;\n  position: absolute !important;\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n}\n\nion-grid ion-card {\n  width: 100%;\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n\nion-grid ion-card ion-card-content {\n  padding: 0 !important;\n}\n\nion-col, ion-grid {\n  width: 100%;\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n\n.container {\n  position: relative;\n  width: 100%;\n}\n\n.slidetitle {\n  position: absolute;\n  bottom: 60px;\n  left: 18px;\n  color: white;\n  text-align: left;\n  font-family: \"Helvetica\";\n  font-size: 14px !important;\n  line-height: 14px;\n  font-weight: 300;\n}\n\n.sliderCard {\n  position: relative;\n}\n\n.sliderCard ion-card-subtitle {\n  position: absolute;\n  bottom: 10px;\n  text-align: left;\n  left: 20px;\n  background: #000;\n  padding: 7px 10px 10px;\n  color: #fff;\n  opacity: 0.8;\n}\n\n.sli1 .sliderCard ion-card-subtitle {\n  font-size: 20px;\n  line-height: 128%;\n  text-transform: none;\n  font-weight: 400;\n}\n\n.sli2 .sliderCard ion-card-subtitle {\n  font-size: 12px;\n  line-height: 128%;\n  text-transform: none;\n}\n\n.firstTitle {\n  font-size: 20px;\n  font-family: Helvetica;\n  padding: 0;\n  text-align: left;\n  padding-left: 13px;\n}\n\n.mg21 {\n  margin: 21px 0 4px;\n}\n\n.mg0 {\n  margin: 0px 0 4px;\n}\n\n.found {\n  font-size: 13px;\n  font-family: helvetica;\n  text-align: center;\n}\n\n/*\n .block{\n    background-color:rgba(0, 0, 0, 0.5);\n    padding: 4px;\n }\n*/\n\n.author {\n  position: absolute;\n  bottom: 25px;\n  left: 20px;\n  color: #f0f0f0;\n  font-size: 15px !important;\n  font-weight: 300;\n  text-shadow: 1px 1px 3px #000000;\n}\n\n.sub-headers p {\n  font-size: 20px;\n  font-family: Helvetica;\n}\n\n.sli1 ion-card-subtitle {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: 16px;\n  max-height: 90px;\n  -webkit-line-clamp: 3;\n  /* Write the number of\n     lines you want to be\n     displayed */\n  -webkit-box-orient: vertical;\n}\n\n.sli2 ion-card-subtitle {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: 16px;\n  max-height: 40px;\n  -webkit-line-clamp: 2;\n  /* Write the number of\n     lines you want to be\n     displayed */\n  -webkit-box-orient: vertical;\n}\n\n.sli2 .swiper-slide img {\n  max-height: 101px;\n  height: 101px;\n}\n\n.slide-padding {\n  padding-bottom: 24px !important;\n}\n\n.slide-padding ion-card-header {\n  background: #f4f4f4;\n}\n\n.swiper-slide img {\n  height: 100%;\n  width: 100%;\n}\n\n.sli1 img {\n  height: 100%;\n  min-height: 281px;\n}\n\n.sli2 img {\n  height: 100%;\n}\n\n.sli3 img {\n  height: 12vh;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9NYWNQcm8vRGVza3RvcC9ERUNPREVSL0Jhc2tldC9zcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGdCQUFBO0FDQ0Y7O0FERUE7RUFDRSxxQkFBQTtFQUNBLDJCQUFBO0VBQ0EsNkJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0FDQ0Y7O0FER1E7RUFDSSxXQUFBO0VBQ0EseUJBQUE7RUFDQSwwQkFBQTtBQ0FaOztBRENZO0VBQ0kscUJBQUE7QUNDaEI7O0FESUE7RUFDRSxXQUFBO0VBQ0EseUJBQUE7RUFDQSwwQkFBQTtBQ0RGOztBRElBO0VBQ0ssa0JBQUE7RUFDQSxXQUFBO0FDREw7O0FESUE7RUFDSSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0Esd0JBQUE7RUFDQSwwQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNESjs7QURJQztFQUNFLGtCQUFBO0FDREg7O0FESUE7RUFDRyxrQkFBQTtFQUNDLFlBQUE7RUFDQSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtFQUNBLHNCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUNESjs7QURJQTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtFQUNBLG9CQUFBO0VBQ0EsZ0JBQUE7QUNERjs7QURJQTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtFQUNBLG9CQUFBO0FDREY7O0FESUM7RUFDRSxlQUFBO0VBQ0Msc0JBQUE7RUFDQSxVQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQ0RKOztBREdDO0VBQ0Usa0JBQUE7QUNBSDs7QURHQztFQUNFLGlCQUFBO0FDQUg7O0FER0M7RUFDRSxlQUFBO0VBQ0Msc0JBQUE7RUFDQSxrQkFBQTtBQ0FKOztBREVBOzs7OztDQUFBOztBQVFDO0VBQ0csa0JBQUE7RUFDQSxZQUFBO0VBQ0EsVUFBQTtFQUNBLGNBQUE7RUFDQSwwQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0NBQUE7QUNESjs7QURNQztFQUNFLGVBQUE7RUFDQSxzQkFBQTtBQ0hIOztBRE1DO0VBQ0MsZ0JBQUE7RUFDQSx1QkFBQTtFQUNBLG9CQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQXVCOztnQkFBQTtFQUd2Qiw0QkFBQTtBQ0ZGOztBREtDO0VBQ0MsZ0JBQUE7RUFDQSx1QkFBQTtFQUNBLG9CQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQXVCOztnQkFBQTtFQUd2Qiw0QkFBQTtBQ0RGOztBRElFO0VBQ0EsaUJBQUE7RUFDQSxhQUFBO0FDREY7O0FESUE7RUFDRywrQkFBQTtBQ0RIOztBRElDO0VBQ0UsbUJBQUE7QUNESDs7QURJQztFQUNNLFlBQUE7RUFDSixXQUFBO0FDREg7O0FES0M7RUFDRSxZQUFBO0VBQ0YsaUJBQUE7QUNGRDs7QURLQztFQUNLLFlBQUE7QUNGTjs7QURLQztFQUNHLFlBQUE7QUNGSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGltZyB7XG4gIG1heC1oZWlnaHQ6IDM1dmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5jdXN0b20tbG9hZGluZyB7XG4gIG9wYWNpdHk6MSAhaW1wb3J0YW50O1xuICBiYWNrZ3JvdW5kOiAjZmZmICFpbXBvcnRhbnQ7XG4gIHBvc2l0aW9uOmFic29sdXRlICFpbXBvcnRhbnQ7XG4gIHdpZHRoOjEwMCU7XG4gIGhlaWdodDoxMDAlO1xuICBtaW4taGVpZ2h0OjEwMCU7XG59XG5cbmlvbi1ncmlke1xuICAgICAgICBpb24tY2FyZHtcbiAgICAgICAgICAgIHdpZHRoOjEwMCU7XG4gICAgICAgICAgICBtYXJnaW4tbGVmdDowICFpbXBvcnRhbnQ7XG4gICAgICAgICAgICBtYXJnaW4tcmlnaHQ6MCAhaW1wb3J0YW50O1xuICAgICAgICAgICAgaW9uLWNhcmQtY29udGVudHtcbiAgICAgICAgICAgICAgICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9XG5cbmlvbi1jb2wsIGlvbi1ncmlkIHtcbiAgd2lkdGg6MTAwJTtcbiAgbWFyZ2luLWxlZnQ6MCAhaW1wb3J0YW50O1xuICBtYXJnaW4tcmlnaHQ6MCAhaW1wb3J0YW50O1xufVxuXG4uY29udGFpbmVye1xuICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgIHdpZHRoOiAxMDAlO1xuIH1cblxuLnNsaWRldGl0bGUge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IDYwcHg7XG4gICAgbGVmdDogMThweDtcbiAgICBjb2xvcjogd2hpdGU7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICBmb250LWZhbWlseTogJ0hlbHZldGljYSc7XG4gICAgZm9udC1zaXplOjE0cHggIWltcG9ydGFudDtcbiAgICBsaW5lLWhlaWdodDoxNHB4O1xuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XG4gfVxuXG4gLnNsaWRlckNhcmQge1xuICAgcG9zaXRpb246cmVsYXRpdmU7XG4gfVxuXG4uc2xpZGVyQ2FyZCBpb24tY2FyZC1zdWJ0aXRsZSB7XG4gICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgYm90dG9tOiAxMHB4O1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gICAgbGVmdDogMjBweDtcbiAgICBiYWNrZ3JvdW5kOiAjMDAwO1xuICAgIHBhZGRpbmc6IDdweCAxMHB4IDEwcHg7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgb3BhY2l0eTogMC44O1xuIH1cblxuLnNsaTEgLnNsaWRlckNhcmQgaW9uLWNhcmQtc3VidGl0bGUge1xuICBmb250LXNpemU6IDIwcHg7XG4gIGxpbmUtaGVpZ2h0OiAxMjglO1xuICB0ZXh0LXRyYW5zZm9ybTpub25lO1xuICBmb250LXdlaWdodDo0MDA7XG59XG5cbi5zbGkyIC5zbGlkZXJDYXJkIGlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBsaW5lLWhlaWdodDogMTI4JTtcbiAgdGV4dC10cmFuc2Zvcm06bm9uZTtcbn1cblxuIC5maXJzdFRpdGxlIHtcbiAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICBmb250LWZhbWlseTogSGVsdmV0aWNhO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICBwYWRkaW5nLWxlZnQ6IDEzcHg7XG4gfVxuIC5tZzIxIHtcbiAgIG1hcmdpbjoyMXB4IDAgNHB4O1xuIH1cblxuIC5tZzAge1xuICAgbWFyZ2luOjBweCAwIDRweDtcbiB9XG5cbiAuZm91bmQge1xuICAgZm9udC1zaXplOiAxM3B4O1xuICAgIGZvbnQtZmFtaWx5OiBoZWx2ZXRpY2E7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuIH1cbi8qXG4gLmJsb2Nre1xuICAgIGJhY2tncm91bmQtY29sb3I6cmdiYSgwLCAwLCAwLCAwLjUpO1xuICAgIHBhZGRpbmc6IDRweDtcbiB9XG4qL1xuXG5cbiAuYXV0aG9yIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgYm90dG9tOiAyNXB4O1xuICAgIGxlZnQ6IDIwcHg7XG4gICAgY29sb3I6IHJnYigyNDAsIDI0MCwgMjQwKTtcbiAgICBmb250LXNpemU6IDE1cHggIWltcG9ydGFudDtcbiAgICBmb250LXdlaWdodDogMzAwO1xuICAgIHRleHQtc2hhZG93OiAxcHggMXB4IDNweCAjMDAwMDAwO1xuIH1cblxuXG5cbiAuc3ViLWhlYWRlcnMgcCB7XG4gICBmb250LXNpemU6IDIwcHg7XG4gICBmb250LWZhbWlseTpIZWx2ZXRpY2E7XG4gfVxuXG4gLnNsaTEgaW9uLWNhcmQtc3VidGl0bGUge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XG4gIGxpbmUtaGVpZ2h0OiAxNnB4O1xuICBtYXgtaGVpZ2h0OiA5MHB4O1xuICAtd2Via2l0LWxpbmUtY2xhbXA6IDM7IC8qIFdyaXRlIHRoZSBudW1iZXIgb2ZcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBsaW5lcyB5b3Ugd2FudCB0byBiZVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc3BsYXllZCAqL1xuICAtd2Via2l0LWJveC1vcmllbnQ6IHZlcnRpY2FsO1xuIH1cblxuIC5zbGkyIGlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xuICBsaW5lLWhlaWdodDogMTZweDtcbiAgbWF4LWhlaWdodDogNDBweDtcbiAgLXdlYmtpdC1saW5lLWNsYW1wOiAyOyAvKiBXcml0ZSB0aGUgbnVtYmVyIG9mXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbGluZXMgeW91IHdhbnQgdG8gYmVcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNwbGF5ZWQgKi9cbiAgLXdlYmtpdC1ib3gtb3JpZW50OiB2ZXJ0aWNhbDtcbiB9XG5cbiAgLnNsaTIgLnN3aXBlci1zbGlkZSBpbWcge1xuICBtYXgtaGVpZ2h0OjEwMXB4O1xuICBoZWlnaHQ6MTAxcHg7XG4gIH1cblxuLnNsaWRlLXBhZGRpbmcgIHtcbiAgIHBhZGRpbmctYm90dG9tOiAyNHB4ICFpbXBvcnRhbnQ7XG4gfVxuXG4gLnNsaWRlLXBhZGRpbmcgaW9uLWNhcmQtaGVhZGVye1xuICAgYmFja2dyb3VuZDojZjRmNGY0O1xuIH1cblxuIC5zd2lwZXItc2xpZGUgaW1nIHtcbiAgICAgICBoZWlnaHQ6IDEwMCU7XG4gICB3aWR0aDoxMDAlO1xuIH1cblxuXG4gLnNsaTEgaW1nIHtcbiAgIGhlaWdodDogMTAwJTtcbiBtaW4taGVpZ2h0OiAyODFweDtcbiB9XG5cbiAuc2xpMiBpbWcge1xuICAgICAgaGVpZ2h0OiAxMDAlO1xuIH1cblxuIC5zbGkzIGltZyB7XG4gICAgaGVpZ2h0OiAxMnZoO1xuIH1cbiIsIi53ZWxjb21lLWNhcmQgaW1nIHtcbiAgbWF4LWhlaWdodDogMzV2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLmN1c3RvbS1sb2FkaW5nIHtcbiAgb3BhY2l0eTogMSAhaW1wb3J0YW50O1xuICBiYWNrZ3JvdW5kOiAjZmZmICFpbXBvcnRhbnQ7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZSAhaW1wb3J0YW50O1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMDAlO1xufVxuXG5pb24tZ3JpZCBpb24tY2FyZCB7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW4tbGVmdDogMCAhaW1wb3J0YW50O1xuICBtYXJnaW4tcmlnaHQ6IDAgIWltcG9ydGFudDtcbn1cbmlvbi1ncmlkIGlvbi1jYXJkIGlvbi1jYXJkLWNvbnRlbnQge1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbmlvbi1jb2wsIGlvbi1ncmlkIHtcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi1sZWZ0OiAwICFpbXBvcnRhbnQ7XG4gIG1hcmdpbi1yaWdodDogMCAhaW1wb3J0YW50O1xufVxuXG4uY29udGFpbmVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB3aWR0aDogMTAwJTtcbn1cblxuLnNsaWRldGl0bGUge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogNjBweDtcbiAgbGVmdDogMThweDtcbiAgY29sb3I6IHdoaXRlO1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xuICBmb250LWZhbWlseTogXCJIZWx2ZXRpY2FcIjtcbiAgZm9udC1zaXplOiAxNHB4ICFpbXBvcnRhbnQ7XG4gIGxpbmUtaGVpZ2h0OiAxNHB4O1xuICBmb250LXdlaWdodDogMzAwO1xufVxuXG4uc2xpZGVyQ2FyZCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLnNsaWRlckNhcmQgaW9uLWNhcmQtc3VidGl0bGUge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogMTBweDtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgbGVmdDogMjBweDtcbiAgYmFja2dyb3VuZDogIzAwMDtcbiAgcGFkZGluZzogN3B4IDEwcHggMTBweDtcbiAgY29sb3I6ICNmZmY7XG4gIG9wYWNpdHk6IDAuODtcbn1cblxuLnNsaTEgLnNsaWRlckNhcmQgaW9uLWNhcmQtc3VidGl0bGUge1xuICBmb250LXNpemU6IDIwcHg7XG4gIGxpbmUtaGVpZ2h0OiAxMjglO1xuICB0ZXh0LXRyYW5zZm9ybTogbm9uZTtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbn1cblxuLnNsaTIgLnNsaWRlckNhcmQgaW9uLWNhcmQtc3VidGl0bGUge1xuICBmb250LXNpemU6IDEycHg7XG4gIGxpbmUtaGVpZ2h0OiAxMjglO1xuICB0ZXh0LXRyYW5zZm9ybTogbm9uZTtcbn1cblxuLmZpcnN0VGl0bGUge1xuICBmb250LXNpemU6IDIwcHg7XG4gIGZvbnQtZmFtaWx5OiBIZWx2ZXRpY2E7XG4gIHBhZGRpbmc6IDA7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIHBhZGRpbmctbGVmdDogMTNweDtcbn1cblxuLm1nMjEge1xuICBtYXJnaW46IDIxcHggMCA0cHg7XG59XG5cbi5tZzAge1xuICBtYXJnaW46IDBweCAwIDRweDtcbn1cblxuLmZvdW5kIHtcbiAgZm9udC1zaXplOiAxM3B4O1xuICBmb250LWZhbWlseTogaGVsdmV0aWNhO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi8qXG4gLmJsb2Nre1xuICAgIGJhY2tncm91bmQtY29sb3I6cmdiYSgwLCAwLCAwLCAwLjUpO1xuICAgIHBhZGRpbmc6IDRweDtcbiB9XG4qL1xuLmF1dGhvciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYm90dG9tOiAyNXB4O1xuICBsZWZ0OiAyMHB4O1xuICBjb2xvcjogI2YwZjBmMDtcbiAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIHRleHQtc2hhZG93OiAxcHggMXB4IDNweCAjMDAwMDAwO1xufVxuXG4uc3ViLWhlYWRlcnMgcCB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgZm9udC1mYW1pbHk6IEhlbHZldGljYTtcbn1cblxuLnNsaTEgaW9uLWNhcmQtc3VidGl0bGUge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XG4gIGxpbmUtaGVpZ2h0OiAxNnB4O1xuICBtYXgtaGVpZ2h0OiA5MHB4O1xuICAtd2Via2l0LWxpbmUtY2xhbXA6IDM7XG4gIC8qIFdyaXRlIHRoZSBudW1iZXIgb2ZcbiAgICAgbGluZXMgeW91IHdhbnQgdG8gYmVcbiAgICAgZGlzcGxheWVkICovXG4gIC13ZWJraXQtYm94LW9yaWVudDogdmVydGljYWw7XG59XG5cbi5zbGkyIGlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xuICBsaW5lLWhlaWdodDogMTZweDtcbiAgbWF4LWhlaWdodDogNDBweDtcbiAgLXdlYmtpdC1saW5lLWNsYW1wOiAyO1xuICAvKiBXcml0ZSB0aGUgbnVtYmVyIG9mXG4gICAgIGxpbmVzIHlvdSB3YW50IHRvIGJlXG4gICAgIGRpc3BsYXllZCAqL1xuICAtd2Via2l0LWJveC1vcmllbnQ6IHZlcnRpY2FsO1xufVxuXG4uc2xpMiAuc3dpcGVyLXNsaWRlIGltZyB7XG4gIG1heC1oZWlnaHQ6IDEwMXB4O1xuICBoZWlnaHQ6IDEwMXB4O1xufVxuXG4uc2xpZGUtcGFkZGluZyB7XG4gIHBhZGRpbmctYm90dG9tOiAyNHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5zbGlkZS1wYWRkaW5nIGlvbi1jYXJkLWhlYWRlciB7XG4gIGJhY2tncm91bmQ6ICNmNGY0ZjQ7XG59XG5cbi5zd2lwZXItc2xpZGUgaW1nIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICB3aWR0aDogMTAwJTtcbn1cblxuLnNsaTEgaW1nIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtaW4taGVpZ2h0OiAyODFweDtcbn1cblxuLnNsaTIgaW1nIHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uc2xpMyBpbWcge1xuICBoZWlnaHQ6IDEydmg7XG59Il19 */");
             /***/ 
         }),
         /***/ "./src/app/pages/home/home.page.ts": 
@@ -114,11 +94,11 @@ var __spread = (this && this.__spread) || function () {
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../providers/word-press/word-press */ "./src/app/providers/word-press/word-press.ts");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+            /* harmony import */ var _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../providers/loader.service */ "./src/app/providers/loader.service.ts");
             var HomePage = /** @class */ (function () {
-                function HomePage(wp, loadingCtrl) {
+                function HomePage(wp, loadingService) {
                     this.wp = wp;
-                    this.loadingCtrl = loadingCtrl;
+                    this.loadingService = loadingService;
                     this.posts = [];
                     this.page = 1;
                     this.count = null;
@@ -147,24 +127,16 @@ var __spread = (this && this.__spread) || function () {
                 };
                 HomePage.prototype.loadPosts = function () {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var loading;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.loadingCtrl.create({
-                                        message: 'Loading Data...',
-                                        translucent: true,
-                                        cssClass: 'custom-loading'
-                                    })];
+                                case 0: return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
                                     _a.sent();
                                     this.wp.getPosts(this.page).subscribe(function (res) {
                                         _this.count = _this.wp.totalPosts;
                                         _this.posts = res;
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading');
                                     });
                                     return [2 /*return*/];
                             }
@@ -173,28 +145,20 @@ var __spread = (this && this.__spread) || function () {
                 };
                 HomePage.prototype.getPostByCategories1 = function (id) {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var loading;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.loadingCtrl.create({
-                                        message: 'Loading Data...',
-                                        translucent: true,
-                                        cssClass: 'custom-loading'
-                                    })];
+                                case 0: return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading2')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
                                     _a.sent();
                                     this.first = false;
                                     this.isFirst = false;
                                     this.wp.getPostsByCategory(id).subscribe(function (res) {
                                         _this.postsPerCat1 = res;
                                         _this.count = _this.wp.totalPosts;
-                                        //console.log(this.postsPerCat);
+                                        console.log(_this.postsPerCat1);
                                         //console.log(this.categories);
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading2');
                                     });
                                     return [2 /*return*/];
                             }
@@ -203,28 +167,20 @@ var __spread = (this && this.__spread) || function () {
                 };
                 HomePage.prototype.getPostByCategories2 = function (id) {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var loading;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.loadingCtrl.create({
-                                        message: 'Loading Data...',
-                                        translucent: true,
-                                        cssClass: 'custom-loading'
-                                    })];
+                                case 0: return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading3')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
                                     _a.sent();
                                     this.first = false;
                                     this.isFirst = false;
                                     this.wp.getPostsByCategory(id).subscribe(function (res) {
                                         _this.postsPerCat2 = res;
-                                        _this.count = _this.wp.totalPosts;
-                                        //console.log(this.postsPerCat);
+                                        //this.count = this.wp.totalPosts;
+                                        console.log(_this.postsPerCat2);
                                         //console.log(this.categories);
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading3');
                                     });
                                     return [2 /*return*/];
                             }
@@ -233,50 +189,31 @@ var __spread = (this && this.__spread) || function () {
                 };
                 HomePage.prototype.getPostByCategories3 = function (id) {
                     return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-                        var loading;
                         var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.loadingCtrl.create({
-                                        message: 'Loading Data...',
-                                        translucent: true,
-                                        cssClass: 'custom-loading'
-                                    })];
+                                case 0: return [4 /*yield*/, this.loadingService.showLoading('ifOfLoading4')];
                                 case 1:
-                                    loading = _a.sent();
-                                    return [4 /*yield*/, loading.present()];
-                                case 2:
                                     _a.sent();
                                     this.first = false;
                                     this.isFirst = false;
                                     this.wp.getPostsByCategory(id).subscribe(function (res) {
                                         _this.postsPerCat3 = res;
-                                        _this.count = _this.wp.totalPosts;
-                                        //console.log(this.postsPerCat);
+                                        //this.count = this.wp.totalPosts;
+                                        console.log(_this.postsPerCat3);
                                         //console.log(this.categories);
-                                        loading.dismiss();
+                                        _this.loadingService.dismissLoader('ifOfLoading4');
                                     });
                                     return [2 /*return*/];
                             }
                         });
                     });
                 };
-                HomePage.prototype.loadMore = function (event) {
-                    var _this = this;
-                    this.page++;
-                    this.wp.getPosts(this.page).subscribe(function (res) {
-                        _this.posts = __spread(_this.posts, res);
-                        event.target.complete();
-                        if (_this.page == _this.wp.pages) {
-                            event.target.disabled = true;
-                        }
-                    });
-                };
                 return HomePage;
             }());
             HomePage.ctorParameters = function () { return [
                 { type: _providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"] },
-                { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] }
+                { type: _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__["LoaderService"] }
             ]; };
             HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -284,7 +221,7 @@ var __spread = (this && this.__spread) || function () {
                     template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./home.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.page.html")).default,
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./home.page.scss */ "./src/app/pages/home/home.page.scss")).default]
                 }),
-                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"]])
+                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_providers_word_press_word_press__WEBPACK_IMPORTED_MODULE_1__["WordpressService"], _providers_loader_service__WEBPACK_IMPORTED_MODULE_3__["LoaderService"]])
             ], HomePage);
             /***/ 
         })
