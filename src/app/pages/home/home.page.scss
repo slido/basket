@@ -4,183 +4,177 @@
 }
 
 .custom-loading {
-  opacity:1 !important;
+  opacity: 1 !important;
   background: #fff !important;
-  position:absolute !important;
-  width:100%;
-  height:100%;
-  min-height:100%;
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
 }
 
-ion-grid{
-        ion-card{
-            width:100%;
-            margin-left:0 !important;
-            margin-right:0 !important;
-            ion-card-content{
-                padding: 0 !important;
-            }
-        }
+ion-grid {
+  ion-card {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    ion-card-content {
+      padding: 0 !important;
     }
-
-ion-col, ion-grid {
-  width:100%;
-  margin-left:0 !important;
-  margin-right:0 !important;
+  }
 }
 
-.container{
-     position: relative;
-     width: 100%;
- }
+ion-col,
+ion-grid {
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
 
 .slidetitle {
-    position: absolute;
-    bottom: 60px;
-    left: 18px;
-    color: white;
-    text-align: left;
-    font-family: 'Helvetica';
-    font-size:14px !important;
-    line-height:14px;
-    font-weight: 300;
- }
+  position: absolute;
+  bottom: 60px;
+  left: 18px;
+  color: white;
+  text-align: left;
+  font-family: 'Helvetica';
+  font-size: 14px !important;
+  line-height: 14px;
+  font-weight: 300;
+}
 
- .sliderCard {
-   position:relative;
- }
+.sliderCard {
+  position: relative;
+}
 
 .sliderCard ion-card-subtitle {
-   position: absolute;
-    bottom: 10px;
-    text-align: left;
-    left: 20px;
-    background: #000;
-    padding: 7px 10px 10px;
-    color: #fff;
-    opacity: 0.8;
- }
+  position: absolute;
+  bottom: 10px;
+  text-align: left;
+  left: 20px;
+  background: #000;
+  padding: 7px 10px 10px;
+  color: #fff;
+  opacity: 0.8;
+}
 
 .sli1 .sliderCard ion-card-subtitle {
   font-size: 20px;
   line-height: 128%;
-  text-transform:none;
-  font-weight:400;
+  text-transform: none;
+  font-weight: 400;
 }
 
 .sli2 .sliderCard ion-card-subtitle {
   font-size: 12px;
   line-height: 128%;
-  text-transform:none;
+  text-transform: none;
 }
 
- .firstTitle {
-   font-size: 20px;
-    font-family: Helvetica;
-    padding: 0;
-    text-align: left;
-    padding-left: 13px;
- }
- .mg21 {
-   margin:21px 0 4px;
- }
+.firstTitle {
+  font-size: 20px;
+  font-family: Helvetica;
+  padding: 0;
+  text-align: left;
+  padding-left: 13px;
+}
 
- .mg0 {
-   margin:0px 0 4px;
- }
+.mg21 {
+  margin: 21px 0 4px;
+}
 
- .found {
-   font-size: 13px;
-    font-family: helvetica;
-    text-align: center;
- }
+.mg0 {
+  margin: 0 0 4px;
+}
+
+.found {
+  font-size: 13px;
+  font-family: helvetica;
+  text-align: center;
+}
 /*
  .block{
     background-color:rgba(0, 0, 0, 0.5);
     padding: 4px;
  }
 */
+.author {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  color: rgb(240, 240, 240);
+  font-size: 15px !important;
+  font-weight: 300;
+  text-shadow: 1px 1px 3px #000000;
+}
 
+.sub-headers p {
+  font-size: 20px;
+  font-family: Helvetica;
+}
 
- .author {
-    position: absolute;
-    bottom: 25px;
-    left: 20px;
-    color: rgb(240, 240, 240);
-    font-size: 15px !important;
-    font-weight: 300;
-    text-shadow: 1px 1px 3px #000000;
- }
-
-
-
- .sub-headers p {
-   font-size: 20px;
-   font-family:Helvetica;
- }
-
- .sli1 ion-card-subtitle {
+.sli1 ion-card-subtitle {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   line-height: 16px;
   max-height: 90px;
-  -webkit-line-clamp: 3; /* Write the number of
+  -webkit-line-clamp: 3;
+  /* Write the number of
                             lines you want to be
                             displayed */
   -webkit-box-orient: vertical;
- }
+}
 
- .sli2 ion-card-subtitle {
+.sli2 ion-card-subtitle {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   line-height: 16px;
   max-height: 40px;
-  -webkit-line-clamp: 2; /* Write the number of
+  -webkit-line-clamp: 2;
+  /* Write the number of
                             lines you want to be
                             displayed */
   -webkit-box-orient: vertical;
- }
+}
 
-  .sli2 .swiper-slide img {
-      height: 100%;
-      min-height: 50px;
-  }
+.sli2 .swiper-slide img {
+  /*max-height:101px;
+  height:101px;*/
+}
 
-.slide-padding  {
-   padding-bottom: 24px !important;
- }
+.slide-padding {
+  padding-bottom: 24px !important;
+}
 
- .slide-padding ion-card-header{
-   background:#f4f4f4;
- }
+.slide-padding ion-card-header {
+  background: #f4f4f4;
+}
 
- .swiper-slide img {
-   height: 100%;
-   width:100%;
- }
+.swiper-slide img {
+  height: 100%;
+  width: 100%;
+}
 
- .sli2 .sliderCard {
-   min-height: 125px;
-  height: 125px;
- }
+.sli1 img {
+  height: 100%;
+  /*min-height: 281px;*/
+}
 
- .sli3 .sliderCard {
-   min-height: 125px;
-  height: 125px;
- }
+.sli2 img {
+  height: 100%;
+  min-height: 100px;
+  max-height: 100%;
+}
 
-
- .sli1 img {
-   height: 100%;
- min-height: 100px;
- }
-
- .sli2 img {
-      height: 100%;
- }
-
- .sli3 img {
-    height: 12vh;
- }
+.sli3 img {
+  height: 100%;
+  min-height: 100px;
+  max-height: 100%;
+}
