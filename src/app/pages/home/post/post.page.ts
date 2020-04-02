@@ -21,6 +21,10 @@ export class PostPage implements OnInit {
     slidesPerView: 2
   };
 
+  author: any;
+  cat: any;
+  tag: any;
+
   constructor(private route: ActivatedRoute, private wp: WordpressService, private location: Location, private loadingService: LoaderService) { }
 
   async ngOnInit() {
@@ -35,13 +39,14 @@ export class PostPage implements OnInit {
       this.getCategory(this.post.categories[0]);
       this.loadPostsByTags(this.post.tags[0]);
       this.getTag(this.post.tags[0]);
+
       console.log(this.post);
       this.loadingService.dismissLoader('ifOfLoading');
     });
   }
 
   async getUser(id) {
-    this.wp.getUser(id).subscribe(res => {
+    await this.wp.getUser(id).subscribe(res => {
       this.user = res;
     });
   }
@@ -52,7 +57,7 @@ export class PostPage implements OnInit {
 
   async getCategory(id) {
     //console.log(id);
-    this.wp.getCathegory(id).subscribe(res => {
+    await this.wp.getCathegory(id).subscribe(res => {
       this.category = res;
     });
   }
@@ -60,7 +65,7 @@ export class PostPage implements OnInit {
   async getTag(id) {
     //console.log(id);
     await this.loadingService.showLoading('ifOfLoading2');
-    this.wp.getTagName(id).subscribe(res => {
+    await this.wp.getTagName(id).subscribe(res => {
       this.tagName = res;
       this.loadingService.dismissLoader('ifOfLoading2');
     });

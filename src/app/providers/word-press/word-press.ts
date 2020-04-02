@@ -39,7 +39,7 @@ export class WordpressService {
         let data = resp['body'];
 
         for (let post of data) {
-          post.media_url = post['_embedded']['wp:featuredmedia'][0]['media_details'].sizes['medium'].source_url;
+          //post.media_url = post['_embedded']['wp:featuredmedia'][0]['media_details'].sizes['medium'].source_url;
         }
         return data;
       })

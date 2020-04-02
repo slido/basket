@@ -20,9 +20,9 @@
       <ion-title class="dTitle" [innerHTML]="post?.title.rendered"></ion-title>
       <img [src]="post.media_url" [style.width]="'100%'">
     </div>
-    <div class="author">Author: {{ user?.name}}</div><br>
-    <div class="cath">Cath: {{ category?.name}}</div><br>
-    <div class="cath">Tag: {{ tagName?.name }}</div><br><br>
+    <div class="author" *ngIf="user && category && tagName">Author: {{ user?.name}}</div><br>
+    <div class="cath" *ngIf="user && category && tagName">Cath: {{ category?.name}}</div><br>
+    <div class="cath" *ngIf="user && category && tagName">Tag: {{ tagName?.name }}</div><br><br>
     &nbsp;&nbsp;&nbsp;<ion-button class="favBtn" (click)="addToFavorites(post.id)" >
       <ion-icon name="heart" end></ion-icon>
     </ion-button>
